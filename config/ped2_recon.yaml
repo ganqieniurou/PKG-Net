@@ -1,0 +1,22 @@
+dataset_name: ped2
+device: cuda:0
+mean: [0.00025021605, 0.083862185, 0.026600655]
+std: [0.0001331624, 0.030512188, 0.020015625]
+train_dataset_dir: ./data/ped2/train/
+test_dataset_dir: ./data/ped2/test/
+gt_dir: ./data/ped2/ped2_gt.json
+train_box_dir: ./data/ped2/ped2_train.npy
+test_box_dir: ./data/ped2/ped2_test.npy
+teacher_name: resnext
+teacher_dir: ./teacher/resnet50-0676ba61.pth
+k: 2
+num_obj: 3
+hybird_para: [0.18,  0.01, 0.82]
+task: recon
+max_epoch: 120
+milestone: 60
+lr_decay: 0.8
+learning_rate: 0.0001
+save_dir: ./model/ped2_recon_student.pt
+batch_size: 128
+loss_para: {gen: 0.8, grad: 0.1, fea: 0.2}

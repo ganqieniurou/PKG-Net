@@ -1,0 +1,23 @@
+dataset_name: shtech
+device: cuda:0
+mean: [0.0035102654, 0.05668377]
+std: [0.0032046044, 0.023757514]
+train_dataset_dir: ./data/shtech/train/
+test_dataset_dir: ./data/shtech/test/
+gt_dir: ./data/shtech/shtech_gt.json
+train_box_dir: ./data/shtech/shtech_train.npy
+test_box_dir: ./data/shtech/shtech_test.npy
+teacher_name: resnext
+teacher_dir: ./teacher/resnext50_32x4d-7cdf4587.pth
+k: 1
+max_epoch: 80
+num_obj: 1
+hybird_para: [0.15, 0.75]
+task: pred
+max_epoch: 80
+milestone: 60
+lr_decay: 0.8
+learning_rate: 0.0001
+save_dir: ./model/shtech_pred_student.pt
+batch_size: 256
+loss_para: {gen: 0.8, grad: 0.1, fea: 0.2}

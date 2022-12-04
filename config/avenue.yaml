@@ -1,0 +1,23 @@
+dataset_name: avenue
+device: cuda:0
+mean: [0.00020463768, 0.022847509]
+std: [0.00023165425, 0.011982802]
+train_dataset_dir: ./data/avenue/train/
+test_dataset_dir: ./data/avenue/test/
+gt_dir: ./data/avenue/avenue_gt.json
+train_box_dir: ./data/avenue/avenue_train.npy
+test_box_dir: ./data/avenue/avenue_test.npy
+teacher_name: resnet
+teacher_dir: ./teacher/resnet50-0676ba61.pth
+k: 1
+max_epoch: 80
+num_obj: 1
+hybird_para: [0.5, 0.5]
+task: pred
+max_epoch: 120
+milestone: 60
+lr_decay: 0.8
+learning_rate: 0.0001
+save_dir: ./model/avenue_pred_student.pt
+batch_size: 128
+loss_para: {gen: 0.8, grad: 0.1, fea: 0.2}
